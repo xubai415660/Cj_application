@@ -1,0 +1,111 @@
+[
+  {
+    "menuName": "登录",
+    "menuNo": "10101",
+    "pMenuNo": "0",
+    "path": "/login",
+    "component": "/login/index.vue",
+    "resourceCode": "AMI0100001",
+    "icon": "research_tasks",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": false,
+    "breadcrumb": true
+  },
+  {
+    "menuName": "应用市场",
+    "menuNo": "100000101",
+    "pMenuNo": "1000001",
+    "component": "/market/market",
+    "path": "/market",
+    "resourceCode": "AMI-MA0102052-01",
+    "icon": "home",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": false
+  },
+  {
+    "menuName": "应用详情",
+    "menuNo": "100000102",
+    "pMenuNo": "1000001",
+    "component": "/application/application_details",
+    "path": "/application_details",
+    "resourceCode": "AMI-MA0102052-02",
+    "icon": "research_tasks",
+    "webUrl": "",
+    "hasChildren": true,
+    "breadcrumb": false
+  },
+  {
+    "menuName": "应用版本",
+    "menuNo": "100000103",
+    "pMenuNo": "1000001",
+    "component": "/market/components/app_version",
+    "path": "/app_version",
+    "resourceCode": "AMI-MA0102052-03",
+    "icon": "home",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": false
+  },
+  {
+    "menuName": "所有评论",
+    "menuNo": "100000104",
+    "pMenuNo": "1000001",
+    "component": "/market/components/app_comment",
+    "path": "/app_comment",
+    "resourceCode": "AMI-MA0102052-04",
+    "icon": "home",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": false
+  },
+  {
+    "menuName": "数模下载",
+    "menuNo": "100000105",
+    "pMenuNo": "1000001",
+    "component": "/dataModel/modelDown",
+    "path": "/dataModel/modelDown",
+    "resourceCode": "AMI-MA0102052-05",
+    "icon": "research_tasks",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": true
+  },
+  {
+    "menuName": "相关推荐",
+    "menuNo": "100000106",
+    "pMenuNo": "1000001",
+    "component": "/market/components/related_suggestion",
+    "path": "/related_suggestion",
+    "resourceCode": "AMI-MA0102052-06",
+    "icon": "home",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": false
+  },
+  {
+    "menuName": "需求反馈",
+    "menuNo": "100000107",
+    "pMenuNo": "1000001",
+    "component": "/feedback/feedback",
+    "path": "/feedback",
+    "resourceCode": "AMI-MA0102052-07",
+    "icon": "home",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": false
+  },
+  {
+    "menuName": "表格",
+    "menuNo": "4",
+    "pMenuNo": "1",
+    "path": "/table",
+    "component": "/table/table.vue",
+    "resourceCode": "AMI-MA0100999-04",
+    "icon": "home",
+    "webUrl": "",
+    "hidden": false,
+    "hasChildren": false
+  }
+]
