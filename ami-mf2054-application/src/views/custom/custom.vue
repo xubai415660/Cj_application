@@ -22,14 +22,12 @@
               <ami-form-item label="审核状态" prop="auditStatus">
                 <ami-select v-model="ruleForm.auditStatus" clearable placeholder="请选择">
                   <ami-option label="全部" value></ami-option>
-                  <ami-option label="待审核" value="02"></ami-option>
-                  <ami-option label="待生成数字签名" value="06"></ami-option>
-                  <!-- <ami-option
+                  <ami-option
                     v-for="item in approval_examine"
                     :label="item.codeClsValName"
                     :value="item.codeClsVal"
                     :key="item.codeClsVal"
-                  ></ami-option> -->
+                  ></ami-option>
                 </ami-select>
               </ami-form-item>
             </ami-col>
@@ -100,21 +98,19 @@
                 <ami-input v-model="ruleForm.createUserName" clearable placeholder="请输入" maxlength="10"></ami-input>
               </ami-form-item>
             </ami-col>
-            <ami-col :span="6">
+            <!-- <ami-col :span="6">
               <ami-form-item label="程序包&监测证明" prop="attStatus">
                 <ami-select v-model="ruleForm.attStatus" clearable placeholder="请选择">
                   <ami-option label="全部" value></ami-option>
-                  <ami-option label="待上传" value="01"></ami-option>
-                  <ami-option label="已上传" value="02"></ami-option>
-                  <!-- <ami-option
+                  <ami-option
                     v-for="item in approval_package"
                     :label="item.codeClsValName"
                     :value="item.codeClsVal"
                     :key="item.codeClsVal"
-                  ></ami-option> -->
+                  ></ami-option>
                 </ami-select>
               </ami-form-item>
-            </ami-col>
+            </ami-col> -->
             <!-- <ami-col :span="6">
               <ami-form-item label="数字签名" prop="singStatus">
                 <ami-select v-model="ruleForm.singStatus" clearable placeholder="请选择">
@@ -156,21 +152,11 @@
           <!-- 底部按钮 -->
           <div slot="bottom">
             <ami-button @click="haneleReport()" round :type="isReport ? 'primary' : ''">报备审核</ami-button>
-            <ami-button @click="haneleSign()" round :type="isSign ? 'primary' : ''">验签生成</ami-button>
+            <ami-button @click="haneleSign()" round :type="isSign ? 'primary' : ''">发布审核</ami-button>
           </div>
           <!-- 应用名称 -->
           <template slot="appName" slot-scope="{ scope }">
             <ami-link @click="ApplicationName(scope.row)" style="color: #0040d0"> {{ scope.row.appName }} </ami-link>
-          </template>
-          <!-- 审批状态 -->
-          <template slot="repStatus" slot-scope="{ scope }">
-            <span v-if="scope.row.repStatus == '02'" class="the-review">审核中</span>
-            <span v-else-if="scope.row.repStatus == '09'" class="approved">审核通过</span>
-            <span v-else-if="scope.row.repStatus == '08'" class="not-through">审核不通过</span>
-          </template>
-          <template slot="attStatus" slot-scope="{ scope }">
-            <span v-if="scope.row.attStatus === '01'" style="color: #d9001b">未上传</span>
-            <span v-else-if="scope.row.attStatus === '02'" style="color: #70b603">已上传</span>
           </template>
         </Tables>
       </div>
@@ -241,10 +227,10 @@ export default {
           label: "审核状态",
           key: "repStatusName",
         },
-        {
-          label: "程序包&监测证明",
-          key: "attStatusName",
-        },
+        // {
+        //   label: "程序包&检测证明",
+        //   key: "attStatusName",
+        // },
         {
           label: "申请单位",
           key: "ceApplyOrgCodeName",
@@ -271,7 +257,7 @@ export default {
     init() {
       this.$nextTick(() => {
         this.getApplyUnit();
-        this.getApprovalExamine({ codeClsType: "02_EXAM_STATUS" }); //审批状态
+        this.getApprovalExamine({ codeClsType: "02_CONFIRM_STATE" }); //审批状态
         this.getApprovalClassify({ appsCategory: "01" }); //业务分类
         this.getApprovalPackage({ codeClsType: "02_ATT_STATUS" }); //程序包&检测证明
         this.getApprovalSign({ codeClsType: "02_SIGN_TYPE" }); //签名类型
@@ -308,7 +294,7 @@ export default {
         }
       }
     },
-    // 验签
+    // 验签-发布审核
     haneleSign() {
       const change = this.multipleSelection.length;
       if (change <= 0) {
@@ -391,7 +377,7 @@ export default {
 <style lang="scss" scoped>
 .custom {
   width: calc(100% - 24px);
-  height: calc(100% - 12px);
+  height: calc(100% - 24px);
   margin: 0 12px 12px 12px;
   display: flex;
   flex-direction: column;
